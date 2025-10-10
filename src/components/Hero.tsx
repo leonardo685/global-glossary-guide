@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
-import { Circle } from "lucide-react";
 import { cn } from "@/lib/utils";
 import heroBg from "@/assets/hero-bg.jpg";
+import logoIcon from "@/assets/logo-icon.jpg";
 
 function ElegantShape({
   className,
@@ -85,7 +85,7 @@ const Hero = () => {
         className="absolute inset-0 bg-cover bg-center"
         style={{ backgroundImage: `url(${heroBg})` }}
       >
-        <div className="absolute inset-0 bg-gradient-to-b from-[hsl(var(--hero-bg))]/95 via-[hsl(var(--hero-bg))]/90 to-[hsl(var(--hero-overlay))]/95" />
+        <div className="absolute inset-0 bg-gradient-to-b from-[hsl(var(--hero-bg))]/70 via-[hsl(var(--hero-bg))]/65 to-[hsl(var(--hero-overlay))]/75" />
       </div>
 
       {/* Gradient Overlay */}
@@ -154,7 +154,7 @@ const Hero = () => {
             }}
             className="inline-flex items-center gap-2 bg-primary/20 backdrop-blur-sm border border-primary/30 rounded-full px-4 py-2 mb-8"
           >
-            <Circle className="w-2 h-2 fill-primary text-primary" />
+            <img src={logoIcon} alt="Mechidro" className="w-5 h-5 object-contain" />
             <span className="text-sm font-medium text-white">Since 1999</span>
           </motion.div>
 
