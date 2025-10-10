@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { Wrench } from "lucide-react";
+import logoIcon from "@/assets/logo-header.jpg";
 
 const Header = () => {
   return (
@@ -9,7 +9,7 @@ const Header = () => {
         <div className="flex h-16 items-center justify-between">
           <Link to="/" className="flex items-center gap-2">
             <div className="bg-primary p-2 rounded">
-              <Wrench className="h-5 w-5 text-primary-foreground" />
+              <img src={logoIcon} alt="MEC HYDRO" className="h-5 w-5 object-contain" />
             </div>
             <div className="flex flex-col">
               <span className="font-bold text-lg leading-none">MEC HYDRO</span>
