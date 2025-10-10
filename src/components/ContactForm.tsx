@@ -5,6 +5,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Card, CardContent } from "@/components/ui/card";
 import { toast } from "sonner";
 import { Phone, Mail, MapPin, Clock, MessageCircle, Award } from "lucide-react";
+import { supabase } from "@/integrations/supabase/client";
 
 const ContactForm = () => {
   const [formData, setFormData] = useState({
@@ -15,18 +16,43 @@ const ContactForm = () => {
     subject: "",
     message: "",
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    toast.success("Message sent successfully! We'll get back to you soon.");
-    setFormData({
-      name: "",
-      surname: "",
-      email: "",
-      phone: "",
-      subject: "",
-      message: "",
-    });
+    setIsSubmitting(true);
+
+    try {
+      const { error } = await supabase
+        .from('contacts')
+        .insert([
+          {
+            name: formData.name.trim(),
+            surname: formData.surname.trim(),
+            email: formData.email.trim().toLowerCase(),
+            phone: formData.phone.trim() || null,
+            subject: formData.subject.trim(),
+            message: formData.message.trim(),
+          }
+        ]);
+
+      if (error) throw error;
+
+      toast.success("Message sent successfully! We'll get back to you soon.");
+      setFormData({
+        name: "",
+        surname: "",
+        email: "",
+        phone: "",
+        subject: "",
+        message: "",
+      });
+    } catch (error) {
+      console.error('Error submitting form:', error);
+      toast.error("Failed to send message. Please try again or contact us directly.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -121,8 +147,12 @@ const ContactForm = () => {
                   />
                 </div>
 
-                <Button type="submit" className="w-full bg-primary hover:bg-primary/90 text-primary-foreground">
-                  Send Message
+                <Button 
+                  type="submit" 
+                  className="w-full bg-primary hover:bg-primary/90 text-primary-foreground"
+                  disabled={isSubmitting}
+                >
+                  {isSubmitting ? "Sending..." : "Send Message"}
                 </Button>
               </form>
             </CardContent>
