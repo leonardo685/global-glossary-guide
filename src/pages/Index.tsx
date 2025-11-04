@@ -3,6 +3,7 @@ import Hero from "@/components/Hero";
 import ClientsCarousel from "@/components/ClientsCarousel";
 import Services from "@/components/Services";
 import ContactForm from "@/components/ContactForm";
+import Footer from "@/components/Footer";
 
 const Index = () => {
   return (
@@ -14,6 +15,7 @@ const Index = () => {
         <Services />
         <ContactForm />
       </main>
+      <Footer />
     </div>
   );
 };

@@ -9,6 +9,8 @@ import CustomManufacturing from "./pages/CustomManufacturing";
 import QualityTesting from "./pages/QualityTesting";
 import TraceabilitySystem from "./pages/TraceabilitySystem";
 import Contact from "./pages/Contact";
+import PrivacyPolicy from "./pages/PrivacyPolicy";
+import TermsOfService from "./pages/TermsOfService";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -26,6 +28,8 @@ const App = () => (
           <Route path="/quality-testing" element={<QualityTesting />} />
           <Route path="/traceability-system" element={<TraceabilitySystem />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+          <Route path="/terms-of-service" element={<TermsOfService />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
