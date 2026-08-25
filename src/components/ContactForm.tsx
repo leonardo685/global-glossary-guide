@@ -182,8 +182,8 @@ const ContactForm = () => {
                   <Phone className="h-5 w-5 text-primary mt-0.5" />
                   <div>
                     <h4 className="font-semibold mb-1">Phone</h4>
-                    <a href="tel:+5519996449359" className="text-sm text-muted-foreground hover:text-primary">
-                      (19) 99644-9359
+                    <a href="tel:+12547330842" className="text-sm text-muted-foreground hover:text-primary">
+                      (254) 733-0842
                     </a>
                   </div>
                 </div>
@@ -192,8 +192,8 @@ const ContactForm = () => {
                   <Mail className="h-5 w-5 text-primary mt-0.5" />
                   <div>
                     <h4 className="font-semibold mb-1">Email</h4>
-                    <a href="mailto:contact@mechydro.com" className="text-sm text-muted-foreground hover:text-primary">
-                      contact@mechydro.com
+                    <a href="mailto:support@mechydro.com" className="text-sm text-muted-foreground hover:text-primary">
+                      support@mechydro.com
                     </a>
                   </div>
                 </div>
@@ -208,7 +208,7 @@ const ContactForm = () => {
                       rel="noopener noreferrer"
                       className="text-sm text-muted-foreground hover:text-primary"
                     >
-                      Waco, TX, United States
+                      76640, 426, S McLennan Loop, Elm Mott.
                     </a>
                   </div>
                 </div>
