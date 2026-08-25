@@ -57,7 +57,7 @@ Deno.serve(async (req) => {
 
     const raw = encodeRaw(
       [
-        `To: ${NOTIFY_TO}`,
+        `To: ${NOTIFY_TO.join(', ')}`,
         `Reply-To: ${email}`,
         `Subject: =?UTF-8?B?${btoa(unescape(encodeURIComponent(`New contact: ${subject}`)))}?=`,
         'Content-Type: text/plain; charset="UTF-8"',
