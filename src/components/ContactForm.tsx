@@ -23,22 +23,26 @@ const ContactForm = () => {
     setIsSubmitting(true);
 
     try {
-      const { error } = await supabase
-        .from('contacts')
-        .insert([
-          {
-            name: formData.name.trim(),
-            surname: formData.surname.trim(),
-            email: formData.email.trim().toLowerCase(),
-            phone: formData.phone.trim() || null,
-            subject: formData.subject.trim(),
-            message: formData.message.trim(),
-          }
-        ]);
+      const payload = {
+        name: formData.name.trim(),
+        surname: formData.surname.trim(),
+        email: formData.email.trim().toLowerCase(),
+        phone: formData.phone.trim() || null,
+        subject: formData.subject.trim(),
+        message: formData.message.trim(),
+      };
+
+      const { error } = await supabase.from('contacts').insert([payload]);
 
       if (error) throw error;
 
+      const { error: mailError } = await supabase.functions.invoke('send-contact-notification', {
+        body: payload,
+      });
+      if (mailError) console.error('Notification email failed:', mailError);
+
       toast.success("Message sent successfully! We'll get back to you soon.");
+
       setFormData({
         name: "",
         surname: "",
