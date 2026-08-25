@@ -1,7 +1,7 @@
 import { corsHeaders } from 'npm:@supabase/supabase-js@2/cors'
 
 const GATEWAY_URL = 'https://connector-gateway.lovable.dev/google_mail/gmail/v1'
-const NOTIFY_TO = ['support@mechydro.com']
+const NOTIFY_TO = ['support@mechydro.com', 'bruno.forte@mechydro.com']
 
 function encodeRaw(message: string): string {
   const bytes = new TextEncoder().encode(message)
