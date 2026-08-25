@@ -1,7 +1,7 @@
 import { corsHeaders } from 'npm:@supabase/supabase-js@2/cors'
 
 const GATEWAY_URL = 'https://connector-gateway.lovable.dev/google_mail/gmail/v1'
-const NOTIFY_TO = ['support@mechydro.com']
+const NOTIFY_TO = ['support@mechydro.com', 'bruno.forte@mechydro.com']
 
 function encodeRaw(message: string): string {
   const bytes = new TextEncoder().encode(message)
@@ -57,7 +57,7 @@ Deno.serve(async (req) => {
 
     const raw = encodeRaw(
       [
-        `To: ${NOTIFY_TO}`,
+        `To: ${NOTIFY_TO.join(', ')}`,
         `Reply-To: ${email}`,
         `Subject: =?UTF-8?B?${btoa(unescape(encodeURIComponent(`New contact: ${subject}`)))}?=`,
         'Content-Type: text/plain; charset="UTF-8"',
