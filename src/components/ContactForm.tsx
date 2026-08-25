@@ -208,7 +208,7 @@ const ContactForm = () => {
                       rel="noopener noreferrer"
                       className="text-sm text-muted-foreground hover:text-primary"
                     >
-                      Waco, TX, United States
+                      76640, 426, S McLennan Loop, Elm Mott.
                     </a>
                   </div>
                 </div>
